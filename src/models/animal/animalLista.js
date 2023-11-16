@@ -16,7 +16,7 @@ export class AnimalsLista {
     }
   
     updateAnimal(id, name, type, age, color, image, vaccine ) {
-      const animal = this.getanimalById(id);
+      const animal = this.getAnimalById(id);
   
       if (animal) {
         animal.name = name;

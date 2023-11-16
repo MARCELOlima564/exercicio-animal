@@ -4,7 +4,7 @@ import { AnimalsLista} from "../models/animal/animalLista.js"
 const animallista = new AnimalsLista();
 
 export const getAnimals = (req, res) =>{
-    const animals = AnimalsLista();
+    const animals = animallista.getAnimals();
 
     if(animals.length){
         return res.status(200).json(animals);
@@ -32,16 +32,15 @@ export const getAnimal = (req, res) => {
 
   export const updateAnimal = (req, res) =>{
     const { id } = req.params;
-    const { name, type, age, color, image, vaccine } = req.body;
+    const { name, type, age, color, image, vaccine} = req.body;
 
     const animal = animallista.getAnimalById(id);
 
-    if(!animal) res.status(404).send({message: "Animal não encontrado !"})
+    if(!animal) res.status(404).send({message:"Animal não encontrado"});
 
     animallista.updateAnimal(id, name, type, age, color, image, vaccine);
 
     return res.send(animal);
-
     }
 
     export const deleteAnimal = (req, res) =>{
