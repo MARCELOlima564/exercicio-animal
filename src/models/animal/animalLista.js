@@ -1,4 +1,4 @@
-export class animalsLista {
+export class AnimalsLista {
     constructor() {
       this.animals = [];
     }
